@@ -1,0 +1,27 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "The dreamboard project aims to create a easy note taking, brainstorming and inspiration board site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoyInTheWell/Dreamboard.git"
+  },
+  "keywords": [
+    "notetaking",
+    "WIP",
+    "learning-project"
+  ],
+  "author": "Wellington Lucas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BoyInTheWell/Dreamboard/issues"
+  },
+  "homepage": "https://github.com/BoyInTheWell/Dreamboard#readme",
+  "dependencies": {
+    "sass-embedded": "^1.77.5"
+  }
+}
