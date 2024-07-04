@@ -3,13 +3,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style/css/style.scss">
+    <title>Dreamboard</title>
+    <link rel="stylesheet" href="style/css/style.css">
   </head>
   <body>
     <div id="container" >
-     <div class="canvas">
+     <div class="canvas" id="canvas" ondragover="allowDrop(event)" ondrop="dropEventHandler(event)">
       <p>Don't center this </p>
+     </div>
+     <div class="bottom-hud">
+      <div class="bottom-hud-select-menu">
+        <img class="select-img" id="add-note" src="style\images\post-it.png" draggable="true" ondragstart="dragEventHandler(event)">
+        <img class="select-img" id="add-text" src="style\images\text.png" draggable="true" ondragstart="dragEventHandler(event)">
+        <img class="select-img" src="style\images\down-arrow.png">
+      </div>
      </div>
   </div>
 	<script src="index.js"></script>

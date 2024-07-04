@@ -1,6 +1,38 @@
-document.addEventListener('DOMContentLoaded', function () {
+function allowDrop(e){
+    e.preventDefault();
+}
+
+function dragEventHandler(e){
+    e.dataTransfer.setData('drop_type', e.target.id);
+    simulateMouseUp('container')
+}
+
+function dropEventHandler (e) {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('drop_type')
+    console.log(data);
+}
+
+function simulateMouseUp(id) {
+    const element = document.getElementById(id);
+    const mouseUpSimulator = new MouseEvent("mouseup", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+    });
+    element.dispatchEvent(mouseUpSimulator);
+}
+
+function domContentLoadedHandler() {
     const ele = document.getElementById('container');
     ele.style.cursor = 'grab';
+
+    const canvas = document.getElementById('canvas')
+
+    const rightBoundRect = canvas.getBoundingClientRect().right / 8;
+    const bottomBoundRect = canvas.getBoundingClientRect().bottom / 8;
+
+    ele.scrollTo(rightBoundRect * 3, bottomBoundRect * 3);
 
     let pos = { top: 0, left: 0, x: 0, y: 0 };
 
@@ -30,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ele.scrollLeft = pos.left - dx;
     };
 
-    const mouseUpHandler = function () {
+    function mouseUpHandler() {
         ele.style.cursor = 'grab';
         ele.style.removeProperty('user-select');
 
@@ -40,4 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach the handler
     ele.addEventListener('mousedown', mouseDownHandler);
-});
+}
+
+document.addEventListener('DOMContentLoaded', domContentLoadedHandler())

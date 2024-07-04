@@ -1,9 +1,12 @@
+$dot-bg: white;
+$dot-color: black;
+$dot-size: 1px;
+$dot-space: 22px;
+$bottom-hud-bg: white;
+$bottom-hud-shadow-color: black;
+
 body {
     overflow: hidden;
-    --dot-bg: white;
-    --dot-color: black;
-    --dot-size: 1px;
-    --dot-space: 22px;
 }
 
 #container {
@@ -19,11 +22,48 @@ body {
     border: 1px solid #cbd5e0;
    
 	background:
-		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-		var(--dot-color);
+		linear-gradient(90deg, $dot-bg calc($dot-space - $dot-size), transparent 1%) center / $dot-space $dot-space,
+		linear-gradient($dot-bg calc($dot-space - $dot-size), transparent 1%) center / $dot-space $dot-space,
+		$dot-color;
 
     text-align: center;
     vertical-align: middle;
 }
 
+.bottom-hud {
+    position: absolute;
+    bottom: 2vw;
+    width: 100%;
+    
+
+    &-select-menu{
+        background-color: $bottom-hud-bg;
+        width: fit-content;
+        padding: 15px 20px;
+        border-radius: 50px;
+        box-shadow: 0 0 5px $bottom-hud-shadow-color;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        .select-img {
+            width: 20px;
+            &:nth-child(even){
+                margin-left: 0.5rem;
+            }
+            &:nth-child(odd){
+                margin-right: 0.5rem;
+            }
+            &:last-child{
+                margin-right: 0;
+                margin-left: 1rem;
+            }
+            &:hover{
+                box-shadow: 0 0 5px lighten($bottom-hud-shadow-color, 30%);
+                transform: scale(1.5, 1.5);
+                transition-duration: 150ms
+            }
+        };
+
+    };
+    
+}
