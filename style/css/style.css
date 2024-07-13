@@ -9,13 +9,24 @@ body {
 }
 
 .canvas {
-  height: max(400vh, 1080px);
-  width: max(400vw, 1980px);
+  height: 2160px;
+  width: 3960px;
   overflow: hidden;
   border: 1px solid #cbd5e0;
   background: linear-gradient(90deg, white 21px, transparent 1%) center/22px 22px, linear-gradient(white 21px, transparent 1%) center/22px 22px, black;
   text-align: center;
   vertical-align: middle;
+}
+.canvas-element {
+  position: absolute;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow: auto;
+  border: 1px solid black;
+  background: none;
+  background-color: beige;
 }
 
 .bottom-hud {
